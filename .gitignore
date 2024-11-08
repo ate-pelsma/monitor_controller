@@ -1,0 +1,7 @@
+/.venv
+/clean_env
+/config.json
+/log.log
+/test
+/test.py
+/__pycache__
