@@ -1,10 +1,10 @@
 import time
 import threading
 
-from logger import setup_logger
-from devicelistener import DeviceListener
-from eventcontroller import EventController
-from config import ConfigGenerator
+from monitor_controller.logger import setup_logger
+from monitor_controller.devicelistener import DeviceListener
+from monitor_controller.eventcontroller import EventController
+from monitor_controller.config import ConfigGenerator
 
 def main():
     logger = setup_logger()
@@ -38,5 +38,4 @@ def execute(logger, config, event_queue):
         logger.info("Program is done sleeping, starting from the top...")
 
 if __name__ == "__main__":
-
     main()

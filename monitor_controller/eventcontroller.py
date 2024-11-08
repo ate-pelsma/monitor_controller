@@ -1,7 +1,7 @@
 import logging
 from monitorcontrol import get_monitors, VCPError
 
-from dataclass import Channel
+from monitor_controller.dataclass import Channel
 
 class EventController:
     
@@ -13,12 +13,11 @@ class EventController:
     def handle_event(self):
         current_event = self.event_queue.pop(0)
         self.required_settings = self.settings[current_event]
-        is_second_monitor = False
 
         self.logger.info("Checking out the current monitor settings...")
         for monitor in get_monitors():
-            monitor_name = "P2423" if is_second_monitor else "HX Armada 27"
-            is_second_monitor = True
+            iteration = 0
+            monitor_name = self.settings.keys()[iteration]
             with monitor:
                 try:
                     self.current_channel = monitor.get_input_source()
