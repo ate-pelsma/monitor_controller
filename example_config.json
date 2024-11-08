@@ -1,0 +1,13 @@
+{
+    "trigger_device": "Example Device",
+    "settings": {
+        "main": {
+            "Monitor 1": "DP1",
+            "Monitor 2": "HDMI1"
+        },
+        "alternate": {
+            "Monitor 1": "HDMI1",
+            "Monitor 2": "DP1"
+        }
+    }
+}
