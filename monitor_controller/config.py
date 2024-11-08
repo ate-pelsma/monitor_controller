@@ -3,8 +3,8 @@ import logging
 import os
 import inquirer
 
-from dataclass import Channel
-from devicelistener import DeviceListener
+from monitor_controller.dataclass import Channel
+from monitor_controller.devicelistener import DeviceListener
 
 
 class ConfigGenerator:
@@ -29,7 +29,7 @@ class ConfigGenerator:
     
     def generate_config(self):
         selected_device = self.determine_trigger_device()
-        monitor_config = self.active_determine_monitor_settings()
+        monitor_config = self.determine_active_monitor_settings()
         monitor_config = self.alternate_monitor_settings(monitor_config)
         config = {
             "trigger_device": selected_device,
@@ -60,7 +60,7 @@ class ConfigGenerator:
 
         return selected_device
     
-    def active_determine_monitor_settings(self):
+    def determine_active_monitor_settings(self):
         main_settings = {}
 
         print("Scanning for connected monitors...\n")
