@@ -13,11 +13,14 @@ class EventController:
     def handle_event(self):
         current_event = self.event_queue.pop(0)
         self.required_settings = self.settings[current_event]
+        monitor_names = list(self.required_settings.keys())
+        iteration = 0
 
         self.logger.info("Checking out the current monitor settings...")
         for monitor in get_monitors():
-            iteration = 0
-            monitor_name = self.settings.keys()[iteration]
+            monitor_name = monitor_names[iteration]
+            iteration += 1 
+            
             with monitor:
                 try:
                     self.current_channel = monitor.get_input_source()
